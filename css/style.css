@@ -1,0 +1,164 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
+
+/* Colors */
+:root {
+    --color-Eerie-Black: #232526;
+    --color-Pure-Black: #000000;
+    --color-Pure-White: #FFFFFF;
+    --color-Red: #FF5353;
+    --color-Red-Border: #FF6D6D;
+    --color-Red-Hover: #FF53534D;
+    --color-Yellow: #FFC429;
+    --color-Yellow-Border: #FFCB43;
+    --color-Yellow-Hover: #FFC3294D;
+    --color-Blue: #5980C1;
+    --color-Blue-Border: #6C8EC8;
+    --color-Blue-Hover: #5980C14D;
+    --color-White: #FBE9B7;
+    --color-White-Border: #FCF0CF;
+    --color-White-Hover: #FBE9B74D;
+    --blur: 35px;
+}
+
+/* Global */
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-Eerie-Black);
+    color: var(--color-Pure-White);
+}
+
+body {
+    flex-direction: column;
+}
+
+/* Start Game Button */
+#BtnStart {
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    background: none;
+    color: var(--color-Pure-White);
+    border: 1px solid var(--color-Pure-White);
+}
+
+/* Infos */
+.infos {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px;
+}
+
+.info h1 {
+    margin: 0;
+    font-size: 40px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.info h3 {
+    font-weight: 500;
+    color: var(--color-Red);
+}
+
+/* Blocks */
+.blocks .row {
+    display: flex;
+}
+
+.blocks .block {
+    width: 100px;
+    height: 100px;
+    border: 1px solid var(--color-Pure-White);
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .5s .2s;
+    margin: 12px;
+}
+
+.blocks .block:active,
+.blocks .block.active {
+    transition: all 0s;
+    color: var(--color-Pure-Black);
+    background-color: var(--color-Pure-White);
+}
+
+/* Red Block */
+.blocks .block-red {
+    border: 1px solid var(--color-Red-Border);
+    box-shadow: 0 0 var(--blur) rgba(255, 83, 83, .2);
+}
+
+.blocks .block-red:hover {
+    background-color: var(--color-Red-Hover);
+    box-shadow: 0 0 var(--blur) var(--color-Red-Hover);
+}
+
+.blocks .block-red:active,
+.blocks .block-red.active {
+    background-color: var(--color-Red);
+    box-shadow: 0 0 var(--blur) var(--color-Red);
+}
+
+/* Yellow Block */
+.blocks .block-yellow {
+    border: 1px solid var(--color-Yellow-Border);
+    box-shadow: 0 0 var(--blur) rgba(255, 196, 41, .2);
+}
+
+.blocks .block-yellow:hover {
+    background-color: var(--color-Yellow-Hover);
+    box-shadow: 0 0 var(--blur) var(--color-Yellow-Hover);
+}
+
+.blocks .block-yellow:active,
+.blocks .block-yellow.active {
+    background-color: var(--color-Yellow);
+    box-shadow: 0 0 var(--blur) var(--color-Yellow);
+}
+
+/* Blue Block */
+.blocks .block-blue {
+    border: 1px solid var(--color-Blue-Border);
+    box-shadow: 0 0 var(--blur) rgba(89, 128, 193, .2);
+}
+
+.blocks .block-blue:hover {
+    background-color: var(--color-Blue-Hover);
+    box-shadow: 0 0 var(--blur) var(--color-Blue-Hover);
+}
+
+.blocks .block-blue:active,
+.blocks .block-blue.active {
+    background-color: var(--color-Blue);
+    box-shadow: 0 0 var(--blur) var(--color-Blue);
+}
+
+/* White Block */
+.blocks .block-white {
+    border: 1px solid var(--color-White-Border);
+    box-shadow: 0 0 var(--blur) rgba(251, 233, 183, .2);
+}
+
+.blocks .block-white:hover {
+    background-color: var(--color-White-Hover);
+    box-shadow: 0 0 var(--blur) var(--color-White-Hover);
+}
+
+.blocks .block-white:active,
+.blocks .block-white.active {
+    background-color: var(--color-White);
+    box-shadow: 0 0 var(--blur) var(--color-White);
+}
