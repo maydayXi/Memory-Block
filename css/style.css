@@ -21,15 +21,22 @@
     --blur: 35px;
 }
 
-/* Global */
+/* #region Global */
 * {
     font-family: 'Roboto', sans-serif;
 }
 
-.flexCenter {
+.flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.abs-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 html, body {
@@ -41,39 +48,273 @@ html, body {
 
 body {
     flex-direction: column;
+    margin: 0;
+}
+
+.title {
+    letter-spacing: 5px;
+    font-size: 4rem;
+    color: var(--color-White);
+    text-shadow: 0 0 var(--blur) var(--color-White);
+}
+/* #endregion */
+
+/* #region Entry Page */
+#EntryPage {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    background-color: var(--color-Eerie-Black);
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/* Buttons */
+#EntryPage > button,
+#HelpPage > button {
+    cursor: pointer;
+    background: none;
+    padding: 10px 20px;
+    width: 20%;
+    letter-spacing: 1px;
+    text-align: center !important;
 }
 
 /* Start Game Button */
 #BtnStart {
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 10px;
-    background: none;
-    color: var(--color-Pure-White);
-    border: 1px solid var(--color-Pure-White);
+    color: var(--color-Blue);
+    border: 1px solid var(--color-Blue);
 }
 
-/* Infos */
-.infos {
+/* Help Button */
+#BtnHelp {
+    color: var(--color-Yellow);
+    border: 1px solid var(--color-Yellow-Border);
+}
+
+/* Exit Button */
+#BtnExit {
+    color: var(--color-Red);
+    border: 1px solid var(--color-Red-Border);
+}
+/* #endregion */
+
+/* #region Help Page */
+#HelpPage {
+    border-radius: 4px;
+    background-color: var(--color-Eerie-Black);
+    padding: 40px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, .2);
+    width: 70%;
+    height: 70%;
+    text-align: center;
+    z-index: 15;
+    display: none;
+}
+
+#HelpPage .title {
+    text-shadow: 0 0 5px var(--color-White);
+    margin: 0;
+}
+
+#HelpPage ul {
+    text-align: left;
+}
+
+#HelpPage li {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+#BtnBack {
+    width: 20% !important;
+    border: 1px solid var(--color-White-Border);
+    color: var(--color-White);
+    font-weight: bold;
+    letter-spacing: 4px !important;
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+}
+/* #endregion */
+
+/* #region Loading Page */
+#LoadingPage {
+    flex-direction: column;
     position: absolute;
     left: 0;
     top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-Eerie-Black);
+    z-index: 5;
+}
+
+#LoadingPage .status {
+    margin-top: 20px;
+}
+
+#LoadingPage .dot-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+#LoadingPage .dot-roller > div {
+    animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+
+#LoadingPage .dot-roller > div::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--color-White);
+    margin: -4px 0 0 -4px;
+    animation: loading-color 4s infinite;
+}
+
+#LoadingPage .dot-roller > div:nth-child(1) {
+    animation-delay: -36ms;
+}
+#LoadingPage .dot-roller > div:nth-child(1)::after {
+    top: 63px;
+    left: 63px;
+}
+
+#LoadingPage .dot-roller > div:nth-child(2) {
+    animation-delay: -72ms;
+}
+#LoadingPage .dot-roller > div:nth-child(2)::after {
+    top: 68px;
+    left: 56px;
+}
+
+#LoadingPage .dot-roller > div:nth-child(3) {
+    animation-delay: -108ms;
+}
+#LoadingPage .dot-roller > div:nth-child(3)::after {
+    top: 71px;
+    left: 48px;
+}
+
+#LoadingPage .dot-roller > div:nth-child(4) {
+    animation-delay: -144ms;
+}
+#LoadingPage .dot-roller > div:nth-child(4)::after {
+    top: 72px;
+    left: 40px;
+}
+
+#LoadingPage .dot-roller > div:nth-child(5) {
+    animation-delay: -180ms;
+}
+#LoadingPage .dot-roller > div:nth-child(5)::after {
+    top: 71px;
+    left: 32px;
+}
+
+#LoadingPage .dot-roller > div:nth-child(6) {
+    animation-delay: -216ms;
+}
+#LoadingPage .dot-roller > div:nth-child(6)::after {
+    top: 68px;
+    left: 24px;
+}
+
+#LoadingPage .dot-roller > div:nth-child(7) {
+    animation-delay: -252ms;
+}
+#LoadingPage .dot-roller > div:nth-child(7)::after {
+    top: 63px;
+    left: 17px;
+}
+
+#LoadingPage .dot-roller > div:nth-child(8) {
+    animation-delay: -288ms;
+}
+#LoadingPage .dot-roller > div:nth-child(8)::after {
+    top: 56px;
+    left: 12px;
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loading-color {
+    0% {
+        background-color: var(--color-White);
+    }
+
+    25% {
+        background-color: var(--color-Red);
+    }
+
+    50% {
+        background-color: var(--color-Blue);
+    }
+
+    75% {
+        background-color: var(--color-Yellow);
+    }
+
+    100% {
+        background-color: var(--color-White);
+    }
+}
+/* #endregion */
+
+/* #region Countdown Page */
+#CountdownPage {
+    width: 50%;
+    height: 50%;
+    z-index: 3;
+    text-align: center;
+}
+
+#CountdownPage #countdown {
+    font-size: 4rem;
+}
+/* #endregion */
+
+/* #region Infos */
+.infos {
+    position: absolute;
+    left: 40px;
+    top: 40px;
     padding: 10px;
 }
 
-.info h1 {
+.infos h1 {
     margin: 0;
     font-size: 40px;
     letter-spacing: 1px;
     line-height: 1.2;
 }
 
-.info h3 {
+.infos h3 {
     font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: 4px;
     color: var(--color-Red);
 }
+/* #endregion */
 
-/* Blocks */
+/* #region Blocks */
 .blocks .row {
     display: flex;
 }
@@ -162,3 +403,32 @@ body {
     background-color: var(--color-White);
     box-shadow: 0 0 var(--blur) var(--color-White);
 }
+
+.blocks .input-status {
+    margin-top: 10px;
+}
+
+.blocks .row .correct .status-dot {
+    background-color: var(--color-Blue) !important;
+    opacity: 1;
+}
+
+.blocks .row .incorrect .status-dot {
+    background-color: var(--color-Red) !important;
+    opacity: 1;
+}
+
+.blocks .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: var(--color-Pure-White);
+    opacity: 0.3;
+    margin: 5px;
+}
+
+.blocks .status-dot.input-dot {
+    opacity: 1;
+}
+/* #endregion */

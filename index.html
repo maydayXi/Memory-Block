@@ -7,34 +7,86 @@
     <title>Memory Block</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
-<body class="flexCenter">
-    
+<body class="flex-center">
+
+    <!-- #region Entry Page -->
+    <div id="EntryPage" class="flex-center">
+        <h1 class="title">Memory Block</h1>
+        <button id="BtnStart">Start Game</button>
+        <button id="BtnHelp">Help</button>
+        <button id="BtnExit">Exit</button>
+    </div>
+    <!-- #endregion -->
+
+    <!-- #region Help Page -->
+    <div id="HelpPage" class="abs-center">
+        <h1 class="title">玩法說明</h1>
+        <ul>
+            <li>初始畫面會有四個方塊，對應四個音效。</li>
+            <li>電腦回合：由電腦先開始，會隨機出題。</li>
+            <li>玩家回合：請玩家依電腦出題順序輸入對應的方塊。</li>
+            <li>勝負判定：玩家輸入與電腦一致，玩家𡣍得這一回合，並進行下一回合。</li>
+        </ul>
+        <button id="BtnBack">返回</button>
+    </div>
+    <!-- #endregion -->
+
+    <!-- #region Loading Page -->
+    <div id="LoadingPage" class="flex-center">
+        <div class="dot-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="status"></div>
+    </div>
+    <!-- #endregion -->
+
+    <!-- #region Countdown Page -->
+    <div id="CountdownPage" class="abs-center flex-center">
+        <h1 id="countdown">Count page</h1>
+    </div>
+    <!-- #endregion -->
+
+    <!-- #region Game information board -->
     <div class="infos">
         <h2>Project 4.</h2>
         <h1>
             Memory <br>
             Block
         </h1>
+        <h3 class="status"></h3>
     </div>
+    <!-- #endregion -->
 
+    <!-- #region Blocks -->
     <div class="blocks">
         <div class="row">
-            <div class="block flexCenter block-red"></div>
-            <div class="block flexCenter block-yellow"></div>
+            <div class="block flex-center block-red"></div>
+            <div class="block flex-center block-yellow"></div>
         </div>
         <div class="row">
-            <div class="block flexCenter block-blue"></div>
-            <div class="block flexCenter block-white"></div>
+            <div class="block flex-center block-blue"></div>
+            <div class="block flex-center block-white"></div>
         </div>
         <div class="row">
             <div class="input-status"></div>
         </div>
     </div>
+    <!-- #endregion -->
 
-    <button id="BtnStart">Start Game</button>
-
+    <!-- #region Script -->
     <!-- jQuery -->
-    <script src="./js/jquery-3.6.0.min.js"></script>
-    <!-- <script src="./js/index.js"></script> -->
+    <script src="./js/plugins/jquery-3.6.0.min.js"></script>
+    <!-- Sweetalert2 -->
+    <script src="./js/plugins/sweetalert2.all.min.js"></script>
+    <!-- App -->
+    <script type="module" src="./js/app.js"></script>
+    <!-- #endregion -->
 </body>
 </html>
