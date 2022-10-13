@@ -18,6 +18,21 @@
     --color-White: #FBE9B7;
     --color-White-Border: #FCF0CF;
     --color-White-Hover: #FBE9B74D;
+    --color-Violet: #7F557D;
+    --color-Violet-Border: #8E5F8C;
+    --color-Violet-Hover: #7F557D4D;
+    --color-Green: #09A129;
+    --color-Green-Border: #0AB92F;
+    --color-Green-Hover: #09A1294D;
+    --color-Chocolate: #7B3F00;
+    --color-Chocolate-Border: #954C00;
+    --color-Chocolate-Hover: #7B3F004D;
+    --color-Pink: #FF007F;
+    --color-Pink-Border: #FF1A8C;
+    --color-Pink-Hover: #FF007F4D;
+    --color-Orange: #FCAA67;
+    --color-Orange-Border: #FCB880;
+    --color-Orange-Hover: #FCAA674D;
     --blur: 35px;
 }
 
@@ -306,11 +321,33 @@ body {
     line-height: 1.2;
 }
 
-.infos h3 {
+.infos .status {
     font-weight: 500;
     font-size: 1.5rem;
     letter-spacing: 4px;
     color: var(--color-Red);
+}
+
+.infos .stars {
+    color: var(--color-White-Hover);
+    letter-spacing: 2px;
+}
+
+.infos .stars span {
+    color: var(--color-Yellow-Border);
+}
+
+.infos .stars .fa-solid {
+    color: var(--color-Yellow);
+}
+
+.infos .life {
+    color: var(--color-Red);
+    letter-spacing: 2px;
+}
+
+.infos .life .fa-regular {
+    color: var(--color-Red-Hover);
 }
 /* #endregion */
 
@@ -404,6 +441,92 @@ body {
     box-shadow: 0 0 var(--blur) var(--color-White);
 }
 
+/* Green Block */
+.blocks .block-green {
+    border: 1px solid var(--color-Green-Border);
+    box-shadow: 0 0 var(--blur) rgba(9, 161, 41, .2);
+}
+
+.blocks .block-green:hover {
+    background-color: var(--color-Green-Hover);
+    box-shadow: 0 0 var(--blur) var(--color-Green-Hover);
+}
+
+.blocks .block-green:active,
+.blocks .block-green.active {
+    background-color: var(--color-Green);
+    box-shadow: 0 0 var(--blur) var(--color-Green);
+}
+
+/* Violet Block */
+.blocks .block-violet {
+    border: 1px solid var(--color-Violet-Border);
+    box-shadow: 0 0 var(--blur) rgba(127, 85, 125, .2);
+}
+
+.blocks .block-violet:hover {
+    background-color: var(--color-Violet-Hover);
+    box-shadow: 0 0 var(--blur) var(--color-Violet-Hover);
+}
+
+.blocks .block-violet:active,
+.blocks .block-violet.active {
+    background-color: var(--color-Violet);
+    box-shadow: 0 0 var(--blur) var(--color-Violet);
+}
+
+/* Chocolate Block */
+.blocks .block-chocolate {
+    border: 1px solid var(--color-Chocolate-Border);
+    box-shadow: 0 0 var(--blur) var(123, 63, 0, .2);
+}
+
+.blocks .block-chocolate:hover {
+    background-color: var(--color-Chocolate-Hover);
+    box-shadow: 0 0 var(--blur) var(--color-Chocolate-Hover);
+}
+
+.blocks .block-chocolate:active,
+.blocks .block-chocolate.active {
+    background-color: var(--color-Chocolate);
+    box-shadow: 0 0 var(--blur) var(--color-Chocolate);
+}
+
+/* Pink Block */
+.blocks .block-pink {
+    border: 1px solid var(--color-Pink-Border);
+    box-shadow: 0 0 var(--blur) var(255, 0, 127 .2);
+}
+
+.blocks .block-pink:hover {
+    background-color: var(--color-Pink-Hover);
+    box-shadow: 0 0 var(--blur) var(--color-Pink-Hover);
+}
+
+.blocks .block-pink:active,
+.blocks .block-pink.active {
+    background-color: var(--color-Pink);
+    box-shadow: 0 0 var(--blur) var(--color-Pink);
+}
+
+/* Orange Block */
+.blocks .block-orange {
+    border: 1px solid var(--color-Orange-Border);
+    box-shadow: 0 0 var(--blur) rgba(252, 170, 103, .2);
+}
+
+.blocks .block-orange:hover {
+    background-color: var(--color-Orange-Hover);
+    box-shadow: 0 0 var(--blur) var(--color-Orange-Hover);
+}
+
+.blocks .block-orange:active,
+.blocks .block-orange.active {
+    background-color: var(--color-Orange);
+    box-shadow: 0 0 var(--blur) var(--color-Orange);
+}
+
+/* Input Status */
 .blocks .input-status {
     margin-top: 10px;
 }

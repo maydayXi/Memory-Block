@@ -64,6 +64,31 @@ class Utility {
             audio.play();
         });
     }
+
+    /**
+     * Get random number between min and max.
+     * @param {Number} max Maxnum
+     * @param {Number} min Mininum
+     * @returns Random number
+     */
+    #randomNumber(max, min) {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+
+    /**
+     * Get level data string
+     * @param {Number} len level length
+     * @param {Number} max Maxnum
+     * @param {Number} min Mininum
+     * @returns Level data string
+     */
+    getLevel(len, max, min) {
+        let level = '';
+        for (let i = 0; i < len; i++) 
+            level += `${this.#randomNumber(max, min)}`;
+
+        return level;
+    }
 }
 
 export default Utility;

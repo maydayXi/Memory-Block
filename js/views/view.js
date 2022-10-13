@@ -6,7 +6,7 @@ import Utility from "../Utils/utility.js";
  */
 class View {
     /**
-     * View constructor
+     * View constructor => initialize all view component
      */
     constructor() {
         // Buttons
@@ -26,8 +26,33 @@ class View {
         
         // Game Page
         this.$Status        = $('h3.status');
+        this.$Life          = $('h3.life');
+        this.$Stars         = $('h3.stars');
         this.$InputStatus   = $('.input-status');
-        this.$Blocks        = $('.blocks .block');
+        this.$Blocks        = $('.blocks');
+    }
+
+    /**
+     * Show Blocks template
+     * @param {Object} blocks Block object array
+     * @param {String} template Block template
+     * 
+     * @see Block
+     */
+    showBlock(blocks, template) {
+        let inputStatusHTML = `
+            <div class="row">
+                <div class="input-status"></div>
+            </div>`;
+
+        this.$Blocks.html('');
+        blocks.forEach(block => template = 
+            template.replace('{SELECTOR}', block.selector.replace('.', '')));
+        this.$Blocks.append(template);
+        this.$Blocks.append(inputStatusHTML);
+        
+        this.$InputStatus   = $('.input-status');
+        this.$BlockChild = this.$Blocks.find('.block');
     }
 
     /**
@@ -98,23 +123,76 @@ class View {
      */
     countdonw(second) { this.$countdown.text(second); }
 
+    /**
+     * 閃爍指定方塊
+     * 
+     * @param {Object} block block object
+     * @see Block
+     */
     async flash(block) {
-        block.dom.addClass('active');
+        $(block.selector).addClass('active');
         await new Utility().delay(0.05);
-        block.dom.removeClass('active');
+        $(block.selector).removeClass('active');
     }
 
+    /**
+     * 開啟所有方塊閃爍
+     * 
+     * @param {Object} blocks block object
+     * @see Block
+     */
     turnAllOn(blocks) {
-        blocks.forEach(block => block.dom.addClass('active'));
+        blocks.forEach(block => $(block.selector).addClass('active'));
     }
 
     /**
      * 關閉所有方塊閃爍
      * 
      * @param {Object} blocks block object
+     * @see Block
      */
     turnAllOff(blocks) {
-        blocks.forEach(block => block.dom.removeClass('active'));
+        blocks.forEach(block => $(block.selector).removeClass('active'));
+    }
+
+    getStatusDot() {
+        return $(`<div class='status-dot'></div>`);
+    }
+
+    /**
+     * Show life value
+     * @param {Number} life Life value
+     */
+    showLife(life) {
+        let $LifeIcon = this.$Life.find('.fa-heart');
+        $LifeIcon.each((i, heart) => {
+            let $heart = $(heart);
+            if (i + 1 > life) {
+                $heart.removeClass('fa-solid');
+                $heart.addClass('fa-regular');
+            } else {
+                $heart.removeClass('fa-regular');
+                $heart.addClass('fa-solid');
+            }
+        });
+    }
+
+    /**
+     * 顯示難易度
+     * @param {Number} difficulty 
+     */
+    showDifficulty(difficulty) {
+        let $StarIcon = this.$Stars.find('.fa-star');
+        $StarIcon.each((i, star) => {
+            let $star = $(star);
+            if(i < difficulty) {
+                $star.removeClass('fa-regular');
+                $star.addClass('fa-solid');
+            } else {
+                $star.removeClass('fa-solid');
+                $star.addClass('fa-regular');
+            }
+        });
     }
 };
 

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Block</title>
+    <link rel="stylesheet" href="./css/plugins/Fontawesome/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="flex-center">
@@ -22,10 +23,14 @@
     <div id="HelpPage" class="abs-center">
         <h1 class="title">玩法說明</h1>
         <ul>
-            <li>初始畫面會有四個方塊，對應四個音效。</li>
-            <li>電腦回合：由電腦先開始，會隨機出題。</li>
-            <li>玩家回合：請玩家依電腦出題順序輸入對應的方塊。</li>
-            <li>勝負判定：玩家輸入與電腦一致，玩家𡣍得這一回合，並進行下一回合。</li>
+            <li>初始畫面：有四個方塊，對應四個音效，難度 1 級，玩家有 5 點生命值。</li>
+            <li>電腦回合：由電腦先開始，隨機出題，後輪到玩家回合</li>
+            <li>玩家回合：請玩家依電腦出題順序點擊對應的方塊。</li>
+            <li>
+                勝負判定：玩家點擊與電腦一致，玩家𡣍得這一回合，並進行下一回合；
+                點擊與電腦不一致，則扣一點生命值，生命值歸 0，玩家輸並結束遊戲。
+            </li>
+            <li>關卡說明：共 15 關，每 5 關一個級別，總共 3 級，方塊數量隨級別數增加。</li>
         </ul>
         <button id="BtnBack">返回</button>
     </div>
@@ -61,6 +66,20 @@
             Block
         </h1>
         <h3 class="status"></h3>
+        <h3 class="life">
+            <span>LIFE：</span>
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-heart"></i>
+        </h3>
+        <h3 class="stars">
+            <span>Difficulty：</span>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </h3>
     </div>
     <!-- #endregion -->
 
