@@ -137,7 +137,6 @@ class Game {
 
         // 載入關卡資料
         this.#generateLevel();
-        console.log(this.levels);
     }
 
     /**
@@ -193,7 +192,6 @@ class Game {
         );
     }
 
-
     /**
      * 倒數計時方法
      */
@@ -217,6 +215,9 @@ class Game {
         this.difficulty = 0;
         this.life = 5;
         this.currentLevel = 0;
+
+        this.#initBlocksModel();
+        this.#createBlocksView();
     }
 
     /**
@@ -358,7 +359,7 @@ class Game {
                 setTimeout(() => {
                     this.view.$InputStatus.html('');
                     this.#reset();
-                    this.levels = this.#generateLevel();
+                    this.#generateLevel();
                     this.round();
                 }, this.utils.duration(1));
             }
