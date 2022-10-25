@@ -555,3 +555,64 @@ body {
     opacity: 1;
 }
 /* #endregion */
+
+/* #region Media Query */
+@media screen and (max-width: 430px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    #EntryPage > button,
+    #HelpPage > button {
+        width: 40% !important;
+    }
+
+    #HelpPage li {
+        font-size: .8rem;
+    }
+
+    #BtnBack {
+        bottom: 10px !important;
+        padding: 5px 10px !important;
+    }
+
+    .infos {
+        top: 20px;
+        left: 0;
+        position: relative;
+        vertical-align: middle;
+    }
+
+    .infos h1 {
+        font-size: 1rem;
+        display: inline-block;
+    }
+
+    .infos h2 {
+        display: none;
+    }
+
+    .infos .status {
+        position: relative;
+        top: -10px;
+        left: 20px;
+        margin: 0;
+        font-size: 1rem;
+        display: inline-block;
+    }
+
+    .infos .life,
+    .infos .stars {
+        margin: 10px 0;
+    }
+
+    .infos .stars {
+        margin-bottom: 30px;
+    }
+
+    .blocks .block {
+        width: 60px;
+        height: 60px;
+    }
+}
+/* #endregion */
